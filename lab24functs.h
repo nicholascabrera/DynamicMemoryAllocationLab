@@ -15,17 +15,7 @@ typedef struct CadetInfoStruct {
  * @post file is closed
  * ----------------------------------------------------------
  */
-int getNumRec(char fName[]){
-    FILE* file = fopen(fName, "r");
-    int numRecs = -1;
-
-    if(file != NULL){
-        fscanf(file, "%i", numRecs);
-    }
-    
-    fclose(file);
-    return numRecs;
-}
+int getNumRec(char fName[]);
 
 /** ----------------------------------------------------------
  * Reads CadetInfoStructType  records from a text file
