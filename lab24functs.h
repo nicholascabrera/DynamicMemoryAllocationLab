@@ -26,3 +26,4 @@ int getNumRec(char fName[]);
  * @post file is closed
  * ----------------------------------------------------------
  */
+void getDataText(CadetInfoStructType cadetRecords[], int numRecs, char dataFile[]);

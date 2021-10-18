@@ -29,3 +29,19 @@ int getNumRec(char fName[]){
  * @post file is closed
  * ----------------------------------------------------------
  */
+
+void getDataText(cadetRecords,numRecs, dataFile){
+    char line[100];
+    FILE* file = fopen(datatFile, "r");
+    fgets(line, 100, file);
+
+    if(file != NULL){
+        while(!feof(file)){
+             fgets(line, 100, file);
+        }
+       
+
+    }
+    fclose(file);
+    return numRecs;
+}
