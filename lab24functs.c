@@ -33,27 +33,23 @@ int getNumRecs(char fName[]){
  */
 
 void getDataText(CadetInfoStructType cadetRecords[], int numRecs, char dataFile[]){
-    char line[100];
-    char lastName[50];
-    char firstName[50];
-    int i = 0;
-
     FILE* file = fopen(dataFile, "r");
    
     if (file == NULL){
         printf("File doesn't exsits. Exiting");
         exit(1);
     }
-
-    fgets(line, 100, file);
+    
+    char lastName[50];
+    char firstName[50];
+    int i = 0;
+    fgets(lastName, 100, file);
     while(!feof(file)){
             fscanf(file, "%s %s %i %i %i\n", lastName, firstName, &cadetRecords[i].age, &cadetRecords[i].squad, &cadetRecords[i].year);
             strcpy(cadetRecords[i].name, firstName);
             strcat(cadetRecords[i].name, " ");
             strcat(cadetRecords[i].name, lastName);
             i++;
-    }
-
-            
+    }       
     fclose(file);
 }

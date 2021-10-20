@@ -2,17 +2,19 @@
 
 int main(void){
     int numRecords = getNumRecs("lab24data.txt");
+   
     
     
-    CadetInfoStructType *cadetRecord = NULL;
-    cadetRecord = (CadetInfoStructType*) malloc(numRecords * sizeof(CadetInfoStructType));
+    CadetInfoStructType *cadetRecords = NULL;
+    cadetRecords = (CadetInfoStructType*) malloc(numRecords * sizeof(CadetInfoStructType));
 
-    getDataText(cadetRecord, numRecords, "lab24data.txt");
-    printf("%d records in the data file.\n", numRecords);
+    getDataText(cadetRecords, numRecords, "lab24data.txt");
+     
     printf("Reading number of records in the data file.\n");
-    printf("The first cadet is:\nCadet name = %s\nCadet age = %d\nCadet squad = %d\nCadet year = %d", cadetRecord[0].name, cadetRecord[0].age, cadetRecord[0].squad, cadetRecord[0].year);
-    printf("The first cadet is:\nCadet name = %s\nCadet age = %d\nCadet squad = %d\nCadet year = %d", cadetRecord[120].name, cadetRecord[120].age, cadetRecord[120].squad, cadetRecord[120].year);
-    free(cadetRecord);
+    printf("%d records in the data file.\n", numRecords);
+    printf("The first cadet is:\nCadet name = %s\nCadet age = %d\nCadet squad = %d\nCadet year = %d", cadetRecords[0].name, cadetRecords[0].age, cadetRecords[0].squad, cadetRecords[0].year);
+    printf("The last cadet is:\nCadet name = %s\nCadet age = %d\nCadet squad = %d\nCadet year = %d", cadetRecords[120].name, cadetRecords[120].age, cadetRecords[120].squad, cadetRecords[120].year);
+    free(cadetRecords);
 
     return 0;
 }
