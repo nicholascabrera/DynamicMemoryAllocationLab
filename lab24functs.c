@@ -9,13 +9,15 @@
  * ----------------------------------------------------------
  */
 int getNumRecs(char fName[]){
-    FILE* file = fopen(fName, "r");
-    int numRecs = -1;
+    FILE* file = NULL;
+    file = fopen(fName, "r");
 
-    if(file != NULL){
-        fscanf(file, "%i", numRecs);
+    if (file == NULL){
+        printf("File doesn't exsits. Exiting");
+        exit(1);
     }
-    
+    int numRecs = -1;
+    fscanf(file, "%d", &numRecs);
     fclose(file);
     return numRecs;
 }
@@ -32,19 +34,28 @@ int getNumRecs(char fName[]){
 
 void getDataText(CadetInfoStructType cadetRecords[], int numRecs, char dataFile[]){
     char line[100];
-    FILE* file = fopen(dataFile, "r");
+    FILE* file = NULL;
+    file = fopen(dataFile, "r");
+   
+    if (file == NULL){
+        printf("File doesn't exsits. Exiting");
+        exit(1);
+    }
 
-    fgets(line, 100, file);
     char lastName[50];
     char firstName[50];
     int i = 0;
+    fgets(line, 100, file);
 
-    if(file != NULL){
-        for(int i = 0; i < numRecs; i++){
-            fscanf(file, "%s %s %i %i %i", lastName, firstName, &cadetRecords[i].age, &cadetRecords[i].squad, &cadetRecords[i].year);
-            strcat(firstName, " ");
-            strcpy(cadetRecords[i].name, strcat(firstName, lastName));
-        }
+    while(!feof (file)){
+            fscanf(file, "%s %s %i %i %i\n", lastName, firstName, &cadetRecords[i].age, &cadetRecords[i].squad, &cadetRecords[i].year);
+            strcpy(cadetRecords[i].name, firstName);
+            strcat(cadetRecords[i].name, " ");
+            strcat(cadetRecords[i].name, lastName);
+            i++;
     }
+    !feof
+
+            
     fclose(file);
 }
