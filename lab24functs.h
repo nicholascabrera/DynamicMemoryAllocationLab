@@ -1,4 +1,8 @@
+#ifndef LAB24FUNCTS_H
+#define LAB24FUNCTS_H
+
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct CadetInfoStruct {
     char name[50];
@@ -15,7 +19,7 @@ typedef struct CadetInfoStruct {
  * @post file is closed
  * ----------------------------------------------------------
  */
-int getNumRec(char fName[]);
+int getNumRecs(char fName[]);
 
 /** ----------------------------------------------------------
  * Reads CadetInfoStructType  records from a text file
@@ -27,3 +31,5 @@ int getNumRec(char fName[]);
  * ----------------------------------------------------------
  */
 void getDataText(CadetInfoStructType cadetRecords[], int numRecs, char dataFile[]);
+
+#endif

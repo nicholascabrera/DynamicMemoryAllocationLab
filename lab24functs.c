@@ -8,7 +8,7 @@
  * @post file is closed
  * ----------------------------------------------------------
  */
-int getNumRec(char fName[]){
+int getNumRecs(char fName[]){
     FILE* file = fopen(fName, "r");
     int numRecs = -1;
 
@@ -30,18 +30,21 @@ int getNumRec(char fName[]){
  * ----------------------------------------------------------
  */
 
-void getDataText(cadetRecords,numRecs, dataFile){
+void getDataText(CadetInfoStructType cadetRecords[], int numRecs, char dataFile[]){
     char line[100];
-    FILE* file = fopen(datatFile, "r");
+    FILE* file = fopen(dataFile, "r");
+
     fgets(line, 100, file);
+    char lastName[50];
+    char firstName[50];
+    int i = 0;
 
     if(file != NULL){
-        while(!feof(file)){
-             fgets(line, 100, file);
+        for(int i = 0; i < numRecs; i++){
+            fscanf(file, "%s %s %i %i %i", lastName, firstName, &cadetRecords[i].age, &cadetRecords[i].squad, &cadetRecords[i].year);
+            strcat(firstName, " ");
+            strcpy(cadetRecords[i].name, strcat(firstName, lastName));
         }
-       
-
     }
     fclose(file);
-    return numRecs;
 }
