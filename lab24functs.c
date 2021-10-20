@@ -43,9 +43,10 @@ void getDataText(CadetInfoStructType cadetRecords[], int numRecs, char dataFile[
     char lastName[50];
     char firstName[50];
     int i = 0;
+
     fgets(lastName, 100, file);
-    while(!feof(file)){
-            fscanf(file, "%s %s %i %i %i\n", lastName, firstName, &cadetRecords[i].age, &cadetRecords[i].squad, &cadetRecords[i].year);
+    while( i< numRecs && !feof(file)){
+            fscanf(file, "%s %s %d %d %d\n", lastName, firstName, &cadetRecords[i].age, &cadetRecords[i].squad, &cadetRecords[i].year);
             strcpy(cadetRecords[i].name, firstName);
             strcat(cadetRecords[i].name, " ");
             strcat(cadetRecords[i].name, lastName);
