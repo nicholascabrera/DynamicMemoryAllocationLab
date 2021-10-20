@@ -2,8 +2,6 @@
 
 int main(void){
     int numRecords = getNumRecs("lab24data.txt");
-   
-    
     
     CadetInfoStructType *cadetRecords = NULL;
     cadetRecords = (CadetInfoStructType*) malloc(numRecords * sizeof(CadetInfoStructType));
